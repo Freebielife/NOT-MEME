@@ -1,0 +1,53 @@
+name: Update TON observatory
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "20,50 * * * *"
+  push:
+    branches: [main]
+    paths:
+      - '*.py'
+      - 'web/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'project.json'
+      - 'common-services.json'
+      - '.github/workflows/update.yml'
+permissions:
+  contents: write
+concurrency:
+  group: observatory-data
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 20
+      - name: Validate engine
+        run: |
+          python3 -m unittest discover -s tests -p "test_*.py"
+          node --check web/app.js
+          node --test tests/*.test.cjs
+      - name: Follow repository renames
+        run: python3 scripts/sync_repository.py
+      - name: Collect on-chain data
+        id: collect
+        continue-on-error: true
+        run: python3 -m scripts.refresh_observatory
+      - name: Build and publish verified snapshot
+        run: |
+          python3 build.py
+          python3 verify.py
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- project.json web/snapshot-loader.js web/page.html
+          if ! git diff --cached --quiet; then git commit -m 'Sync observatory repository URLs'; fi
+          python3 scripts/publish_snapshot.py
+          git push origin HEAD:main
+      - name: Report partial collection
+        if: steps.collect.outcome == 'failure'
+        run: exit 1

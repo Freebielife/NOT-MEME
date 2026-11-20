@@ -1,0 +1,33 @@
+{
+  "slug": "mem",
+  "name": "Not Meme",
+  "symbol": "MEM",
+  "master": "EQAWpz2_G0NKxlG2VvgFbgZGPt8Y1qe0cGj-4Yw5BfmYR5iF",
+  "decimals": 9,
+  "github": {
+    "owner": "Freebielife",
+    "repo": "NOT-MEME"
+  },
+  "primary_pool": "EQApAQzWrHQFReeu92xG_vaWFgL30GEQvfTZca4ZyLeNftrK",
+  "pools": [
+    {
+      "address": "EQApAQzWrHQFReeu92xG_vaWFgL30GEQvfTZca4ZyLeNftrK",
+      "dex": "dedust",
+      "quote": "TON"
+    },
+    {
+      "address": "EQAtrjFaHv-e2qOkGrOzTvB-xV1LHCpMgBPjxamfaqSzAJ92",
+      "dex": "stonfi",
+      "quote": "TON"
+    },
+    {
+      "address": "EQD-whWJtmduLtja6My0x3RS4dLiBt6sPF49iETBwTLz2on3",
+      "dex": "stonfi",
+      "quote": "TON"
+    }
+  ],
+  "links": {},
+  "services": {},
+  "badges": [],
+  "logo_file": "web/project-logo.webp"
+}

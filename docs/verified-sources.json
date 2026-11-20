@@ -1,0 +1,82 @@
+{
+  "checked_at": "2026-11-20",
+  "master": "0:16a73dbf1b434ac651b656f8056e06463edf18d6a7b47068fee18c3905f99847",
+  "decimals": 9,
+  "metadata_url": "https://tonapi.io/v2/jettons/EQAWpz2_G0NKxlG2VvgFbgZGPt8Y1qe0cGj-4Yw5BfmYR5iF",
+  "flag_source": "User attachment Not Meme.zip",
+  "pools": [
+    {
+      "address": "EQApAQzWrHQFReeu92xG_vaWFgL30GEQvfTZca4ZyLeNftrK",
+      "dex": "dedust",
+      "quote": "TON",
+      "get_method": {
+        "asset0": {
+          "sum_type": "Native",
+          "native": {},
+          "jetton": {
+            "workchain_id": 0,
+            "address": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "extra_currency": {
+            "currency_id": 0
+          }
+        },
+        "asset1": {
+          "sum_type": "Jetton",
+          "native": {},
+          "jetton": {
+            "workchain_id": 0,
+            "address": "16a73dbf1b434ac651b656f8056e06463edf18d6a7b47068fee18c3905f99847"
+          },
+          "extra_currency": {
+            "currency_id": 0
+          }
+        }
+      }
+    },
+    {
+      "address": "EQAtrjFaHv-e2qOkGrOzTvB-xV1LHCpMgBPjxamfaqSzAJ92",
+      "dex": "stonfi",
+      "quote": "TON",
+      "get_method": {
+        "reserve0": "72096247595333",
+        "reserve1": "1296187282017282450",
+        "token0_address": "0:1150b518b2626ad51899f98887f8824b70065456455f7fe2813f012699a4061f",
+        "token1_address": "0:43b0d4ab5df3308d49a2c9fdfd80887c7e5c158e434b12620ba06facb7abfab9",
+        "lp_fee": 70,
+        "protocol_fee": 30,
+        "ref_fee": 30,
+        "protocol_fee_address": "0:87ef04c6bfe52573c5430142b44d16afbe081080140240cbf3750942dfbe3b21",
+        "collected_token0_protocol_fee": "2115118665",
+        "collected_token1_protocol_fee": "4856243359198"
+      },
+      "wallet_masters": {
+        "token0_address": "0:8cdc1d7640ad5ee326527fc1ad0514f468b30dc84b0173f0e155f451b4e11f7c",
+        "token1_address": "0:16a73dbf1b434ac651b656f8056e06463edf18d6a7b47068fee18c3905f99847"
+      }
+    },
+    {
+      "address": "EQD-whWJtmduLtja6My0x3RS4dLiBt6sPF49iETBwTLz2on3",
+      "dex": "stonfi",
+      "quote": "TON",
+      "get_method": {
+        "is_locked": false,
+        "router_address": "0:e1e681cfbdf4703eed9b3910460a82c43b859064a2f87e4e430f583275e346f6",
+        "total_supply": "1001",
+        "reserve0": "5549",
+        "reserve1": "84304827",
+        "token0_wallet_address": "0:e2c76a8c39cf903b4e4d9fd5fba0a1676136f76efb7137bc929b3a06963ac5bf",
+        "token1_wallet_address": "0:7406578582a3214f038ad23ebe9880cb546848764c0dd294fc808e765f1a4546",
+        "lp_fee": 20,
+        "protocol_fee": 10,
+        "protocol_fee_address": "",
+        "collected_token0_protocol_fee": "6643899",
+        "collected_token1_protocol_fee": "912711630"
+      },
+      "wallet_masters": {
+        "token0_wallet_address": "0:671963027f7f85659ab55b821671688601cdcf1ee674fc7fbbb1a776a18d34a3",
+        "token1_wallet_address": "0:16a73dbf1b434ac651b656f8056e06463edf18d6a7b47068fee18c3905f99847"
+      }
+    }
+  ]
+}
