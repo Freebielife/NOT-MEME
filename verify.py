@@ -25,6 +25,10 @@ for key, kinds in (("trades", {"buy", "sell"}), ("burns", {"burn"})):
         if key == "trades":
             assert Decimal(row["ton"]) > 0
             assert row["pool"] in POOLS and row["dex"] == POOLS[row["pool"]][1]
+            if row['dex'] == 'DeDust':
+                assert row.get('amountSource') == 'dedust_pool_log'
+                assert Decimal(row['poolTokenAmount']) > 0
+                assert re.fullmatch(r'[a-f0-9]{64}',row['poolTx'])
         seen.add(row["tx"])
 if "holders" in snapshot:
     holders = snapshot["holders"]

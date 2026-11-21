@@ -16,11 +16,11 @@
     }
     const rows=(snapshot.trades?.rows||[]).filter(r=>
       r.pool==="EQApAQzWrHQFReeu92xG_vaWFgL30GEQvfTZca4ZyLeNftrK"&&Number.isFinite(r.time)&&r.time<=end&&
-      Number.isFinite(Number(r.tokenAmount))&&Number(r.tokenAmount)>0&&Number.isFinite(Number(r.ton))&&Number(r.ton)>0)
+      Number.isFinite(Number(r.poolTokenAmount??r.tokenAmount))&&Number(r.poolTokenAmount??r.tokenAmount)>0&&Number.isFinite(Number(r.ton))&&Number(r.ton)>0)
       .slice().sort((a,b)=>a.time-b.time||(a.lt||"").localeCompare(b.lt||"",undefined,{numeric:true})||a.tx.localeCompare(b.tx));
     function value(row,time=row.time){
       const rate=currency==="USD"?usdAt(time):1;
-      return rate===null?null:Number(row.ton)/Number(row.tokenAmount)*supply*rate;
+      return rate===null?null:Number(row.ton)/Number(row.poolTokenAmount??row.tokenAmount)*supply*rate;
     }
     const latest=rows.at(-1);
     const result={supply,end,start,latest,latestCap:validSupply&&latest?value(latest,end):null,points:[],change:null,partial:true,tradeCount:0};

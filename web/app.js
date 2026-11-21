@@ -850,7 +850,7 @@ function ranks(){
 
 /* Self-contained brand marks: real MEM art and inline vector / letter marks.
    No third-party fonts, icon CDNs, scripts or external UI dependencies. */
-const brandLabels={project:"A",ton:"◆",gram:"G",usdt:"₮",
+const brandLabels={project:"M",ton:"◆",gram:"G",usdt:"₮",
   telegram:"",x:"",github:"GH",ston:"S",dedust:"D",tonco:"C",gecko:"G",
   gramorg:"◎",tonviewer:"TV",dexscreener:"DX",tonraffles:"TR",
   jvault:"JV",getgems:"GG",fragment:"F",web:"W",explorer:"↗"};

@@ -78,5 +78,46 @@
         "token1_wallet_address": "0:16a73dbf1b434ac651b656f8056e06463edf18d6a7b47068fee18c3905f99847"
       }
     }
-  ]
+  ],
+  "dedust_refund_regression": {
+    "trace_url": "https://tonapi.io/v2/traces/2f3225be55e35237a1cc858e7c3ed3823c0acd5a6bceb9520b5cc28c0931a75b",
+    "indexer_ton_out": "0.274111927",
+    "executed_ton_out": "0.000112375",
+    "pool_proof": {
+      "transaction": "21d62fc4f01867e17328af07847170bc6af08bf687565a9fd303ca649cc7b805",
+      "pool": "0:29010cd6ac740545e7aef76c46fef6961602f7d06110bdf4d971ae19c8b78d7e",
+      "log": {
+        "asset_in": {
+          "sum_type": "Jetton",
+          "native": {},
+          "jetton": {
+            "workchain_id": 0,
+            "address": "16a73dbf1b434ac651b656f8056e06463edf18d6a7b47068fee18c3905f99847"
+          },
+          "extra_currency": {
+            "currency_id": 0
+          }
+        },
+        "asset_out": {
+          "sum_type": "Native",
+          "native": {},
+          "jetton": {
+            "workchain_id": 0,
+            "address": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          "extra_currency": {
+            "currency_id": 0
+          }
+        },
+        "amount_in": "2000000000",
+        "amount_out": "112375",
+        "field4": {
+          "sender_addr": "0:59fbb82f00e6d606ccc84a29a83351999b6e9b8e73a77d4ad47b4d0b3f2bc612",
+          "referral_addr": "",
+          "reserve0": "71165691306354",
+          "reserve1": "1263408385212286013"
+        }
+      }
+    }
+  }
 }

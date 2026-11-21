@@ -83,7 +83,7 @@ def refresh() -> dict:
           interval=6*3600)
     stage("trades", lambda previous: trades.collect(previous, now - trade_history.YEAR,
                                                       now, max_pages=35))
-    if trade_history.refresh(snap, now, save=save):
+    if trade_history.refresh(snap, now, page_budget=2, save=save):
         errors.add("tradeHistory")
     else:
         errors.discard("tradeHistory")

@@ -1,0 +1,20 @@
+{
+  "python_tests": 21,
+  "node_tests": 16,
+  "viewport_widths": [
+    360,
+    390,
+    768,
+    1280
+  ],
+  "horizontal_overflow": false,
+  "checked_controls": [
+    "RU/EN",
+    "TON/USD",
+    "periods",
+    "badge_filter"
+  ],
+  "external_render_dependencies": [],
+  "external_trading_pages": "HTTP 403 from execution environment; availability not confirmed",
+  "internal_anchors": "all targets exist"
+}

@@ -45,3 +45,9 @@ test('USD stays empty without rates and TON remains available',()=>{
  assert.equal(marketCapSeries(s,100,60,'USD').latestCap,null);
  assert.equal(marketCapSeries(s,100).latestCap,10000);
 });
+
+test('pool execution quantity is used when wallet receipt differs because of token fees',()=>{
+ const r=row(190,17802,1);r.poolTokenAmount='17927';
+ const d=marketCapSeries(snapshot([r]),100);
+ assert.equal(d.latestCap,1000000/17927);
+});

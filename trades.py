@@ -1,6 +1,7 @@
 """Successful direct TON/MEM swaps from tracked pool events."""
 import re
 import time
+import dedust_proofs
 from urllib.parse import urlencode
 
 from assets import MASTER_RAW, fetch, raw_address, token_amount, native_amount
@@ -20,6 +21,8 @@ def swap_rows(event, pool):
         swap = action["JettonSwap"]
         if swap["dex"] != dex:
             continue
+        if dex == 'dedust' and (swap.get('router') or {}).get('address') != dedust_proofs.raw_friendly(pool):
+            continue
         source = (swap.get("jetton_master_in") or {}).get("address")
         target = (swap.get("jetton_master_out") or {}).get("address")
         if target == MASTER_RAW and source is None and swap.get("ton_in"):
@@ -34,7 +37,14 @@ def swap_rows(event, pool):
             raise ValueError("Invalid swap transaction hash")
         jetton, gram = token_amount(jetton), native_amount(gram)
         if jetton != "0" and gram != "0":
-            yield {"kind": kind, "time": int(event["timestamp"]), "tx": tx,
+            proof = {}
+            if dex == 'dedust':
+                proof = dedust_proofs.pool_amounts(
+                    dedust_proofs.trace_for(event.get('event_id') or tx), pool,
+                    raw_address(swap['user_wallet']['address']), kind, jetton,
+                    action['base_transactions'])
+                gram = proof['ton']
+            yield {**proof, "kind": kind, "time": int(event["timestamp"]), "tx": tx,
                    "lt": str(event["lt"]), "wallet": raw_address(swap["user_wallet"]["address"]),
                    "tokenAmount": jetton, "ton": gram, "dex": label, "pool": pool}
 
